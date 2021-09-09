@@ -22,6 +22,12 @@ document.getElementById('test-button').addEventListener('click', function(){
   
     /* remove class 'active' from all articles */
   
+    const activeArticles = document.querySelectorAll('article.active');
+
+    for(let activeArticle of activeArticles){
+        activeArticle.classList.remove('active');
+    }   
+
     /* get 'href' attribute from the clicked link */
   
     /* find the correct article using the selector (value of 'href' attribute) */
