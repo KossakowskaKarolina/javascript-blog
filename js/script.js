@@ -65,11 +65,10 @@ function generateTitleLinks(){
 
   /* [DONE] remove contents of titleList */
 
-  function clearMessages(){
+  const clearMessages = function(){
     document.querySelector(optTitleListSelector).innerHTML = '';
   }
 
-  clearMessages();
 
   /* [DONE] for each article */
 
