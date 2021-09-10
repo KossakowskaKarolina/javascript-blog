@@ -35,7 +35,7 @@ document.getElementById('test-button').addEventListener('click', function(){
 
     /* [DONE] get 'href' attribute from the clicked link */
   
-    const getAttribute = clickedElement.getAttribute("href"); 
+    const getAttribute = clickedElement.getAttribute('href'); 
     console.log(getAttribute);
 
     /* [DONE] find the correct article using the selector (value of 'href' attribute) */
@@ -58,7 +58,8 @@ document.getElementById('test-button').addEventListener('click', function(){
 
 const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
-  optTitleListSelector = '.titles';
+  optTitleListSelector = '.titles',
+  articles = document.querySelectorAll(optArticleSelector);
 
 function generateTitleLinks(){
 
@@ -72,7 +73,12 @@ function generateTitleLinks(){
 
   /* for each article */
 
+  for(let article of articles){
+
     /* get the article id */
+    
+    const articleId = article.getAttribute('id');
+    console.log(articleId);
 
     /* find the title element */
 
@@ -82,6 +88,7 @@ function generateTitleLinks(){
 
     /* insert link into titleList */
 
+  }
 }
 
 generateTitleLinks();
