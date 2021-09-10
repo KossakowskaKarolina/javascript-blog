@@ -82,12 +82,12 @@ function generateTitleLinks(){
 
     /* find the title element */
 
-    //const title = document.querySelector(optTitleSelector);
+    //const title = article.querySelector(optTitleSelector);
     //console.log(title);
 
     /* get the title from the title element */
 
-    const getTitle = document.querySelector(optTitleSelector).innerHTML;
+    const getTitle = article.querySelector(optTitleSelector).innerHTML;
     console.log(getTitle)
 
     /* create HTML of the link */
