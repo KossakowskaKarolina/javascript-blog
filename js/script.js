@@ -91,6 +91,9 @@ function generateTitleLinks(){
     console.log(getTitle)
 
     /* create HTML of the link */
+    
+    const linkHTML = '<li><a href="#' + articleId + '"><span>' + getTitle + '</span></a></li>';
+    console.log(linkHTML);
 
     /* insert link into titleList */
 
