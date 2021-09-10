@@ -96,7 +96,10 @@ function generateTitleLinks(){
     console.log(linkHTML);
 
     /* insert link into titleList */
-
+    
+    const link = document.createElement('a');
+    link.innerHTML = linkHTML;
+    document.querySelector(optTitleListSelector).appendChild(link);
   }
 }
 
