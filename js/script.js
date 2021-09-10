@@ -40,6 +40,9 @@ document.getElementById('test-button').addEventListener('click', function(){
 
     /* find the correct article using the selector (value of 'href' attribute) */
   
+    const getArticle = document.querySelector(getAttribute);
+    console.log(getArticle);
+
     /* add class 'active' to the correct article */ 
   }
 
