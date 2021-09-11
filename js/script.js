@@ -92,9 +92,12 @@ function generateTitleLinks(){
     //link.innerHTML = linkHTML;
     //document.querySelector(optTitleListSelector).appendChild(link);
 
-    titleList.innerHTML = titleList.innerHTML + linkHTML;
+    //titleList.innerHTML = titleList.innerHTML + linkHTML;
+    html = html + linkHTML;
 
   }
+
+  titleList.innerHTML = html;
   
   const links = document.querySelectorAll('.titles a');
   
