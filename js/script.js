@@ -147,17 +147,22 @@ document.getElementById('test-button').addEventListener('click', function(){
 
         /* [DONE] generate HTML of the link */
 
-        const linkHTML = '<li><a href="#' + tag + '">' + tag + '</a></li>';
+        const linkHTML = '<li><a href="#' + tag + '">' + tag + '</a></li> ';
         console.log(linkHTML);
 
-        /* add generated code to html variable */
+        /* [DONE] add generated code to html variable */
 
-      /* END LOOP: for each tag */
+        html = html + linkHTML;
+
+      /* [DONE] END LOOP: for each tag */
       }
 
-      /* insert HTML of all the links into the tags wrapper */
+      /* [DONE] insert HTML of all the links into the tags wrapper */
 
-    /* END LOOP: for every article: */
+      postTags.innerHTML = html;
+
+
+    /* [DONE] END LOOP: for every article: */
     }
   };
 
