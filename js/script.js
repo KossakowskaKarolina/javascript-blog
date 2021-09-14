@@ -131,7 +131,10 @@ document.getElementById('test-button').addEventListener('click', function(){
       let html = '';
       console.log(html);
 
-      /* get tags from data-tags attribute */
+      /* [DONE] get tags from data-tags attribute */
+
+      const getTags = article.getAttribute('data-tags');
+      console.log (getTags);
 
       /* split tags into array */
 
