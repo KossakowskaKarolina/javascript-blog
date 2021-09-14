@@ -56,6 +56,7 @@ document.getElementById('test-button').addEventListener('click', function(){
     optTitleSelector = '.post-title',
     optTitleListSelector = '.titles',
     articles = document.querySelectorAll(optArticleSelector);
+    optArticleTagsSelector = '.post-tags .list';
 
 
   const generateTitleLinks = function (){
@@ -112,5 +113,32 @@ document.getElementById('test-button').addEventListener('click', function(){
 
   generateTitleLinks();
 
+  const generateTags = function(){
+    /* find all articles */
+
+    /* START LOOP: for every article: */
+
+      /* find tags wrapper */
+
+      /* make html variable with empty string */
+
+      /* get tags from data-tags attribute */
+
+      /* split tags into array */
+
+      /* START LOOP: for each tag */
+
+        /* generate HTML of the link */
+
+        /* add generated code to html variable */
+
+      /* END LOOP: for each tag */
+
+      /* insert HTML of all the links into the tags wrapper */
+
+    /* END LOOP: for every article: */
+  };
+
+  generateTags();
 
 }
