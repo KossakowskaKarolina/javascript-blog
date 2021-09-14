@@ -136,7 +136,10 @@ document.getElementById('test-button').addEventListener('click', function(){
       const getTags = article.getAttribute('data-tags');
       console.log (getTags);
 
-      /* split tags into array */
+      /* [DONE] split tags into array */
+
+      const splitTags = getTags.split(' ');
+      console.log (splitTags);
 
       /* START LOOP: for each tag */
 
