@@ -114,11 +114,17 @@ document.getElementById('test-button').addEventListener('click', function(){
   generateTitleLinks();
 
   const generateTags = function(){
+
     /* find all articles */
 
     /* START LOOP: for every article: */
 
-      /* find tags wrapper */
+    for(let article of articles){
+
+      /* [DONE] find tags wrapper */
+
+      const postTags = article.querySelector(optArticleTagsSelector);
+      console.log (postTags);
 
       /* make html variable with empty string */
 
@@ -137,6 +143,7 @@ document.getElementById('test-button').addEventListener('click', function(){
       /* insert HTML of all the links into the tags wrapper */
 
     /* END LOOP: for every article: */
+    }
   };
 
   generateTags();
