@@ -141,13 +141,19 @@ document.getElementById('test-button').addEventListener('click', function(){
       const splitTags = getTags.split(' ');
       console.log (splitTags);
 
-      /* START LOOP: for each tag */
+      /* [DONE] START LOOP: for each tag */
 
-        /* generate HTML of the link */
+      for(let tag of splitTags){
+
+        /* [DONE] generate HTML of the link */
+
+        const linkHTML = '<li><a href="#' + tag + '">' + tag + '</a></li>';
+        console.log(linkHTML);
 
         /* add generated code to html variable */
 
       /* END LOOP: for each tag */
+      }
 
       /* insert HTML of all the links into the tags wrapper */
 
