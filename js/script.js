@@ -126,7 +126,10 @@ document.getElementById('test-button').addEventListener('click', function(){
       const postTags = article.querySelector(optArticleTagsSelector);
       console.log (postTags);
 
-      /* make html variable with empty string */
+      /* [DONE] make html variable with empty string */
+
+      let html = '';
+      console.log(html);
 
       /* get tags from data-tags attribute */
 
