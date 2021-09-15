@@ -147,7 +147,7 @@ document.getElementById('test-button').addEventListener('click', function(){
 
         /* [DONE] generate HTML of the link */
 
-        const linkHTML = '<li><a href="#' + tag + '">' + tag + '</a></li> ';
+        const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li> ';
         console.log(linkHTML);
 
         /* [DONE] add generated code to html variable */
@@ -167,5 +167,47 @@ document.getElementById('test-button').addEventListener('click', function(){
   };
 
   generateTags();
+
+  const tagClickHandler = function(event){
+
+    /* prevent default action for this event */
+
+    /* make new constant named "clickedElement" and give it the value of "this" */
+
+    /* make a new constant "href" and read the attribute "href" of the clicked element */
+
+    /* make a new constant "tag" and extract tag from the "href" constant */
+
+    /* find all tag links with class active */
+
+    /* START LOOP: for each active tag link */
+
+      /* remove class active */
+
+    /* END LOOP: for each active tag link */
+
+    /* find all tag links with "href" attribute equal to the "href" constant */
+
+    /* START LOOP: for each found tag link */
+
+      /* add class active */
+
+    /* END LOOP: for each found tag link */
+
+    /* execute function "generateTitleLinks" with article selector as argument */
+  }
+
+  const addClickListenersToTags = function(){
+
+    /* find all links to tags */
+
+    /* START LOOP: for each link */
+
+      /* add tagClickHandler as event listener for that link */
+
+    /* END LOOP: for each link */
+  }
+
+  addClickListenersToTags();
 
 }
