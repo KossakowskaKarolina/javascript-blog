@@ -55,7 +55,7 @@ document.getElementById('test-button').addEventListener('click', function(){
   const optArticleSelector = '.post',
     optTitleSelector = '.post-title',
     optTitleListSelector = '.titles',
-    articles = document.querySelectorAll(optArticleSelector);
+    articles = document.querySelectorAll(optArticleSelector),
     optArticleTagsSelector = '.post-tags .list';
 
 
