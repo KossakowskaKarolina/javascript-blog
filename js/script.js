@@ -55,13 +55,13 @@ document.getElementById('test-button').addEventListener('click', function(){
   const optArticleSelector = '.post',
     optTitleSelector = '.post-title',
     optTitleListSelector = '.titles',
-    //articles = document.querySelectorAll(optArticleSelector + customSelector),
-    optArticleTagsSelector = '.post-tags .list';
+    optArticleTagsSelector = '.post-tags .list',
+    optArticleAuthorSelector = '.post-author';
 
 
   // eslint-disable-next-line no-inner-declarations
   function generateTitleLinks(customSelector = ''){
-    console.log(customSelector);
+    //console.log(customSelector);
 
     /* [DONE] remove contents of titleList */
 
@@ -69,7 +69,7 @@ document.getElementById('test-button').addEventListener('click', function(){
     titleList.innerHTML = '';
 
     let html = '';
-    console.log(html);
+    //console.log(html);
 
     /* [DONE] for each article */
     const articles = document.querySelectorAll(optArticleSelector + customSelector);
@@ -126,22 +126,22 @@ document.getElementById('test-button').addEventListener('click', function(){
       /* [DONE] find tags wrapper */
 
       const postTags = article.querySelector(optArticleTagsSelector);
-      console.log (postTags);
+      //console.log (postTags);
 
       /* [DONE] make html variable with empty string */
 
       let html = '';
-      console.log(html);
+      //console.log(html);
 
       /* [DONE] get tags from data-tags attribute */
 
       const getTags = article.getAttribute('data-tags');
-      console.log (getTags);
+      //console.log (getTags);
 
       /* [DONE] split tags into array */
 
       const splitTags = getTags.split(' ');
-      console.log (splitTags);
+      //console.log (splitTags);
 
       /* [DONE] START LOOP: for each tag */
 
@@ -150,7 +150,7 @@ document.getElementById('test-button').addEventListener('click', function(){
         /* [DONE] generate HTML of the link */
 
         const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li> ';
-        console.log(linkHTML);
+        //console.log(linkHTML);
 
         /* [DONE] add generated code to html variable */
 
@@ -242,5 +242,42 @@ document.getElementById('test-button').addEventListener('click', function(){
   };
 
   addClickListenersToTags();
+
+
+  const generateAuthors = function() {
+
+    /* find all articles */
+
+    /* START LOOP: for every article: */
+    const articles = document.querySelectorAll(optArticleSelector);
+    for(let article of articles){
+
+      /* find authors wrapper */
+      const postAuthor = article.querySelector(optArticleAuthorSelector);
+      console.log(postAuthor);
+
+      /* make html variable with empty string */
+      let html = '';
+
+      /* get author from data-author attribute */
+      const getAuthor = article.getAttribute('data-author');
+      console.log(getAuthor);
+
+      /* generate HTML of the link */
+
+      const linkHTML = 'by <a href="#author-' + getAuthor + '">' + getAuthor + '</a>';
+      console.log(linkHTML);
+
+      /* add generated code to html variable */
+      html = html + linkHTML;
+
+      /* insert HTML of all the links into the authors wrapper */
+      postAuthor.innerHTML = html;
+
+    /* END LOOP: for every article: */
+    }
+  };
+
+  generateAuthors ();
 
 }
