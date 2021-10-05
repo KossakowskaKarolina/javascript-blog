@@ -118,8 +118,8 @@ document.getElementById('test-button').addEventListener('click', function(){
 
   const generateTags = function(){
 
-    /* [DONE] create a new variable allTags with an empty array */
-    let allTags = [];
+    /* [DONE] create a new variable allTags with an empty object */
+    let allTags = {};
 
     /* [DONE] find all articles */
 
@@ -154,10 +154,12 @@ document.getElementById('test-button').addEventListener('click', function(){
         html = html + linkHTML;
 
         /* [DONE] check if this link is NOT already in allTags */
-        if(allTags.indexOf(linkHTML) == -1){
+        if(!allTags[tag]) {
 
           /* [DONE] add generated code to allTags array */
-          allTags.push(linkHTML);
+          allTags[tag] = 1;
+        } else {
+          allTags[tag]++;
         }
 
       /* [DONE] END LOOP: for each tag */
@@ -172,8 +174,20 @@ document.getElementById('test-button').addEventListener('click', function(){
     /* [DONE] find list of tags in right column */
     const tagList = document.querySelector('.tags');
 
-    /* [DONE] add html from allTags to tagList */
-    tagList.innerHTML = allTags.join(' ');
+    /* [DONE] create variable for all links HTML code */
+    let allTagsHTML = '';
+
+    /* [DONE] START LOOP: for each tag in allTags: */
+    for(let tag in allTags){
+
+      /* [DONE] generate code of a link and add it to allTagsHTML */
+      allTagsHTML += '<li><a href="#tag-' + tag + '">' + tag + ' (' + allTags[tag] + ') </a></li> ';
+
+    /* [DONE] END LOOP: for each tag in allTags: */
+    }
+
+    /*[DONE] add HTML from allTagsHTML to tagList */
+    tagList.innerHTML = allTagsHTML;
   };
 
   generateTags();
