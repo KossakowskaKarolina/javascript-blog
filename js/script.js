@@ -192,7 +192,7 @@ document.getElementById('test-button').addEventListener('click', function(){
     const tagList = document.querySelector('.tags');
 
     const tagsParams = calculateTagsParams(allTags);
-    console.log('tagsParams:', tagsParams);
+    //console.log('tagsParams:', tagsParams);
 
     /* [DONE] create variable for all links HTML code */
     let allTagsHTML = '';
@@ -288,6 +288,9 @@ document.getElementById('test-button').addEventListener('click', function(){
 
   const generateAuthors = function() {
 
+    /* [DONE] create a new variable allAuthors with an empty object */
+    let allAuthors = {};
+
     /* [DONE] find all articles */
 
     /* [DONE] START LOOP: for every article: */
@@ -306,18 +309,44 @@ document.getElementById('test-button').addEventListener('click', function(){
       //console.log(getAuthor);
 
       /* [DONE] generate HTML of the link */
-
       const linkHTML = 'by <a href="#author-' + getAuthor + '">' + getAuthor + '</a>';
       //console.log(linkHTML);
 
       /* [DONE] add generated code to html variable */
       html = html + linkHTML;
 
+      /* [DONE] check if this link is NOT already in allAuthors */
+      if(!allAuthors[getAuthor]) {
+        /* [DONE] add author to allAuthors object */
+        allAuthors[getAuthor] = 1;
+      } else {
+        allAuthors[getAuthor]++;
+      }
+
       /* [DONE] insert HTML of all the links into the authors wrapper */
       postAuthor.innerHTML = html;
 
     /* [DONE] END LOOP: for every article: */
     }
+
+    /* [DONE] find list of authors in right column */
+    const authorList = document.querySelector('.authors');
+    //console.log(authorList);
+
+    /* [DONE] create variable for all links HTML code */
+    let allAuthorsHTML = '';
+
+    /* [DONE] START LOOP: for each author in allAuthors */
+    for(let author in allAuthors){
+
+      /* [DONE] generate code of a link and add it to allAuthorsHTML */
+      allAuthorsHTML += '<li><a href="#author-' + author +'"><span class="author-name">' + author + ' (' + allAuthors[author] + ')</span></a></li>';
+
+      /* [DONE] END LOOP: for each tag in allAuthors: */
+    }
+
+    /*[DONE] add HTML from allAuthorsHTML to authorList */
+    authorList.innerHTML = allAuthorsHTML;
   };
 
   generateAuthors ();
