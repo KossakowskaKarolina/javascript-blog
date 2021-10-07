@@ -57,7 +57,7 @@ document.getElementById('test-button').addEventListener('click', function(){
     optTitleListSelector = '.titles',
     optArticleTagsSelector = '.post-tags .list',
     optArticleAuthorSelector = '.post-author',
-    optTagsListSelector = '.tags.list';
+    optTagsListSelector = '.tags.list',
 
 
   // eslint-disable-next-line no-inner-declarations
@@ -116,6 +116,23 @@ document.getElementById('test-button').addEventListener('click', function(){
 
   generateTitleLinks();
 
+  const calculateTagsParams = function(tags){
+
+    /*create a variable with object values */
+    let numbersOfTags = Object.values(tags);
+
+    /* find min value */
+    const Min = Math.min(...numbersOfTags);
+
+    /* find max value */
+    const Max = Math.max(...numbersOfTags);
+
+    /* create a new variable countTags with an object */
+    let tagsValues = {Min, Max};
+
+    return tagsValues;
+  };
+
   const generateTags = function(){
 
     /* [DONE] create a new variable allTags with an empty object */
@@ -173,6 +190,9 @@ document.getElementById('test-button').addEventListener('click', function(){
 
     /* [DONE] find list of tags in right column */
     const tagList = document.querySelector('.tags');
+
+    const tagsParams = calculateTagsParams(allTags);
+    console.log('tagsParams:', tagsParams);
 
     /* [DONE] create variable for all links HTML code */
     let allTagsHTML = '';
