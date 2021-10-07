@@ -58,6 +58,8 @@ document.getElementById('test-button').addEventListener('click', function(){
     optArticleTagsSelector = '.post-tags .list',
     optArticleAuthorSelector = '.post-author',
     optTagsListSelector = '.tags.list',
+    optCloudClassCount = 5,
+    optCloudClassPrefix = 'tag-size-';
 
 
   // eslint-disable-next-line no-inner-declarations
@@ -94,14 +96,7 @@ document.getElementById('test-button').addEventListener('click', function(){
 
       /* [DONE] insert link into titleList */
 
-      //const link = document.createElement('a');
-      //link.innerHTML = linkHTML;
-      //document.querySelector(optTitleListSelector).appendChild(link);
-
       html = html + linkHTML;
-
-      //titleList.insertAdjacentHTML('afterend', linkHTML);
-
     }
 
     titleList.innerHTML = html;
@@ -122,15 +117,20 @@ document.getElementById('test-button').addEventListener('click', function(){
     let numbersOfTags = Object.values(tags);
 
     /* find min value */
-    const Min = Math.min(...numbersOfTags);
+    const min = Math.min(...numbersOfTags);
 
     /* find max value */
-    const Max = Math.max(...numbersOfTags);
+    const max = Math.max(...numbersOfTags);
 
     /* create a new variable countTags with an object */
-    let tagsValues = {Min, Max};
+    let tagsValues = {min, max};
 
     return tagsValues;
+  };
+
+  const calculateTagClass = function(count, params){
+    const classNumber = Math.floor( ( (count - params.min) / (params.max - params.min) ) * (optCloudClassCount - 1) + 1 );
+    return optCloudClassPrefix + classNumber;
   };
 
   const generateTags = function(){
@@ -201,7 +201,7 @@ document.getElementById('test-button').addEventListener('click', function(){
     for(let tag in allTags){
 
       /* [DONE] generate code of a link and add it to allTagsHTML */
-      allTagsHTML += '<li><a href="#tag-' + tag + '">' + tag + ' (' + allTags[tag] + ') </a></li> ';
+      allTagsHTML += '<li><a href="#tag-' + tag + '" class="' + calculateTagClass(allTags[tag], tagsParams) + '">' + tag + ' (' + allTags[tag] + ') </a></li> ';
 
     /* [DONE] END LOOP: for each tag in allTags: */
     }
