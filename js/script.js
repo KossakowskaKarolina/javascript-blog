@@ -19,6 +19,7 @@ document.getElementById('test-button').addEventListener('click', function(){
     tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML),
     authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
     tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML),
+    authorListLink: Handlebars.compile(document.querySelector('#template-author-list-link').innerHTML),
   };
 
   const titleClickHandler = function(event){
@@ -320,19 +321,22 @@ document.getElementById('test-button').addEventListener('click', function(){
     //console.log(authorList);
 
     /* [DONE] create variable for all links HTML code */
-    let allAuthorsHTML = '';
+    const allAuthorsData = {authors: []};
 
     /* [DONE] START LOOP: for each author in allAuthors */
     for(let author in allAuthors){
 
       /* [DONE] generate code of a link and add it to allAuthorsHTML */
-      allAuthorsHTML += '<li><a href="#author-' + author +'"><span class="author-name">' + author + ' (' + allAuthors[author] + ')</span></a></li>';
-
+      //allAuthorsHTML += '<li><a href="#author-' + author +'"><span class="author-name">' + author + ' (' + allAuthors[author] + ')</span></a></li>';
+      allAuthorsData.authors.push({
+        author: author,
+        count: allAuthors[author],
+      });
       /* [DONE] END LOOP: for each tag in allAuthors: */
     }
 
     /*[DONE] add HTML from allAuthorsHTML to authorList */
-    authorList.innerHTML = allAuthorsHTML;
+    authorList.innerHTML = templates.authorListLink(allAuthorsData);
   };
 
   generateAuthors ();
