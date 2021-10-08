@@ -14,6 +14,10 @@ document.getElementById('test-button').addEventListener('click', function(){
     optCloudClassCount = 5,
     optCloudClassPrefix = 'tag-size-';
 
+  const templates = {
+    articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML)
+  };
+
   const titleClickHandler = function(event){
     event.preventDefault();
     const clickedElement = this;
@@ -76,7 +80,8 @@ document.getElementById('test-button').addEventListener('click', function(){
       const getTitle = article.querySelector(optTitleSelector).innerHTML;
 
       /* [DONE] create HTML of the link */
-      const linkHTML = '<li><a href="#' + articleId + '"><span>' + getTitle + '</span></a></li>';
+      const linkHTMLData = {id: articleId, title: getTitle};
+      const linkHTML = templates.articleLink(linkHTMLData);
 
       /* [DONE] insert link into titleList */
       html = html + linkHTML;
