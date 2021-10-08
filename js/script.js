@@ -17,6 +17,7 @@ document.getElementById('test-button').addEventListener('click', function(){
   const templates = {
     articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
     tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML),
+    authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
   };
 
   const titleClickHandler = function(event){
@@ -286,7 +287,8 @@ document.getElementById('test-button').addEventListener('click', function(){
       //console.log(getAuthor);
 
       /* [DONE] generate HTML of the link */
-      const linkHTML = 'by <a href="#author-' + getAuthor + '">' + getAuthor + '</a>';
+      const linkHTMLData = {id: getAuthor, title: getAuthor};
+      const linkHTML = templates.authorLink(linkHTMLData);
       //console.log(linkHTML);
 
       /* [DONE] add generated code to html variable */
