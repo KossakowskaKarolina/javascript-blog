@@ -15,7 +15,8 @@ document.getElementById('test-button').addEventListener('click', function(){
     optCloudClassPrefix = 'tag-size-';
 
   const templates = {
-    articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML)
+    articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
+    tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML),
   };
 
   const titleClickHandler = function(event){
@@ -152,7 +153,8 @@ document.getElementById('test-button').addEventListener('click', function(){
       for(let tag of splitTags){
 
         /* [DONE] generate HTML of the link */
-        const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li> ';
+        const linkHTMLData = {id: tag, title: tag};
+        const linkHTML = templates.tagLink(linkHTMLData);
         //console.log(linkHTML);
 
         /* [DONE] add generated code to html variable */
